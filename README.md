@@ -20,6 +20,6 @@ npm run build-and-push
 npm install -g clasp@latest
 ```
 
-2. Change the file `toUpdate.clasp.json` to `.clasp.json` and update the id;
+2. Copy `toUpdate.clasp.json` to `.clasp.json` and update the id within it;
 
 
