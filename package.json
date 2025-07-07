@@ -1,5 +1,5 @@
 {
-  "name": "experimento",
+  "name": "blanck-form",
   "version": "1.0.0",
   "description": "codigo Appscript",
   "main": "index.js",
@@ -8,24 +8,27 @@
   },
   "scripts": {
     "build": "node build.js",
-    "build-and-push": "rm dist/code.js; node build.js; npm run push ",
-    "push": "clasp push",
-    "test": "mocha run test"
+    "clean-build-files": "rm dist/main.js; rm dist/main/*.*;",
+    "push": "clasp push; npm run clean-build-files;",
+    "build-and-push": "npm run clean-build-files;node build.js; npm run push ",
+    "test": "mocha app/tests/**/*.test.js",
+    "coverage": "nyc --exclude 'app/test/**' --exclude 'app/src/commons/gsheetClient.js' npm test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davidgk/demo_punto_de_venta.git"
+    "url": "git+https://github.com/davidgk/blanck-form.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/davidgk/demo_punto_de_venta/issues"
+    "url": "https://github.com/davidgk/blanck-form.git/issues"
   },
   "devDependencies": {
     "chai": "^4.3.4",
     "esbuild": "0.19.12",
-    "mocha": "^9.0.3",
-    "nyc": "^15.1.0"
+    "mocha": "^9.2.2",
+    "nyc": "^15.1.0",
+    "sinon": "19.0.2"
   },
-  "homepage": "https://github.com/davidgk/demo_punto_de_venta#readme"
+  "homepage": "https://github.com/davidgk/blanck-form.git#readme"
 }
