@@ -1,27 +1,25 @@
-const {OperationResult} = require("../commons/OperationResult");
 const Expense = require("./Expense");
 const {REFERENCIAS_STD_DATA_RANGES, CARGA_DE_GASTOS_TABLE, CARGA_DE_GASTOS, sheets} = require("../commons/coordinate");
+const AbstractManager = require("../commons/AbstractManager");
+const {OperationResult} = require("../commons/OperationResult");
 
-class ExpensesManager {
+class ExpensesManager extends AbstractManager{
 
     constructor(sheetClient) {
-        this.sheetClient = sheetClient;
+        super(sheetClient)
     }
 
-    saveExpense() {
-        const expense = Expense.createExpenseFromForm(this.sheetClient)
-        expense.saveValues();
-        this.refreshCombo()
-        this.checkShouldClean()
-        return OperationResult.createSuccessExpenseLoaded();
+    createEntity() {
+        return Expense.createExpenseFromForm(this.sheetClient);
     }
 
     cleanForm() {
-        if (this.containThingsToClean()) {
-            this.configureCleanForm();
-        }
-        this.refreshCombo()
-        return OperationResult.createSuccessCleanForm();
+       let result = super.cleanForm()
+        this.sheetClient.setValueInCell(CARGA_DE_GASTOS.MONTO, 0);
+        this.sheetClient.setValueInCell(CARGA_DE_GASTOS.DESCRIPCION, "N/A");
+        this.sheetClient.setValueInCell(CARGA_DE_GASTOS.COMENTARIOS, "N/A");
+        this.sheetClient.setValueInCell(CARGA_DE_GASTOS.A_QUIEN, "N/A");
+        return result;
     }
 
     refreshCombo() {
@@ -37,13 +35,13 @@ class ExpensesManager {
         }
     }
 
-    containThingsToClean() {
-        const expense = Expense.createExpenseFromForm(this.sheetClient)
-        return expense.containsData();
-    }
-
     configureCleanForm() {
         this.sheetClient.cleanData(CARGA_DE_GASTOS.RANGE_DATA_CLEAN, sheets.CARGA_DE_GASTOS);
+    }
+
+    containThingsToClean() {
+        const expense = this.createEntity()
+        return expense.containsData();
     }
 }
 

@@ -6,7 +6,8 @@ const messages = {
     FORM_CLEAN: "Formulario no posee datos",
     FIELD_EMPTY(fieldName) {
         return `El campo ${fieldName} no posee datos`;
-    }
+    },
+    IMPLEMENT_IN_CHILD_CLASS: "Implementar en la clase Hija!"
 }
 
 module.exports = {messages}

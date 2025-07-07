@@ -56,7 +56,7 @@ class GoogleSheetClient {
     return this.getValuesFromRange(range).flat().filter(String);
   }
 
-  saveInCell(cellCoordinate, value){
+  setValueInCell(cellCoordinate, value){
     this.spreadsheet.getRange(cellCoordinate).setValue(value);
   }
 
