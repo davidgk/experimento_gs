@@ -11,4 +11,12 @@ function getDataListFromColumn(gSheetClient, rangeData, columnNumber=0) {
     },[] )
 }
 
-module.exports = {getDataListFromColumn}
+const getValueOrNotApplied = (position, dataAsList) => {
+    if (dataAsList[position]===undefined ||dataAsList[position] === "") {
+        dataAsList[position] = "N/C"
+        return "N/C"
+    }
+    return dataAsList[position];
+
+}
+module.exports = {getDataListFromColumn, getValueOrNotApplied}

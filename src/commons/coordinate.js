@@ -8,21 +8,29 @@ const sheets = {
 
 const CARGA_DE_GASTOS = {
     FECHA: `${sheets.CARGA_DE_GASTOS}!C5`,
-    FORMA_DE_PAGO: `${sheets.CARGA_DE_GASTOS}!C6`,
-    REALIZADO_POR: `${sheets.CARGA_DE_GASTOS}!C7`,
-    DESCRIPCION: `${sheets.CARGA_DE_GASTOS}!C8`,
-    A_QUIEN: `${sheets.CARGA_DE_GASTOS}!C9`,
-    TIPO_MOV: `${sheets.CARGA_DE_GASTOS}!C10`,
-    COMENTARIOS: `${sheets.CARGA_DE_GASTOS}!C11`,
+    MONTO: `${sheets.CARGA_DE_GASTOS}!C6`,
+    FORMA_DE_PAGO: `${sheets.CARGA_DE_GASTOS}!C7`,
+    REALIZADO_POR: `${sheets.CARGA_DE_GASTOS}!C8`,
+    DESCRIPCION: `${sheets.CARGA_DE_GASTOS}!C9`,
+    COMENTARIOS: `${sheets.CARGA_DE_GASTOS}!C10`,
+    TIPO_MOV: `${sheets.CARGA_DE_GASTOS}!C11`,
+    A_QUIEN: `${sheets.CARGA_DE_GASTOS}!C12`,
+    RANGE_DATA: `${sheets.CARGA_DE_GASTOS}!C5:C12`,
+    CLEAN_AFTER_SAVE:`${sheets.CARGA_DE_GASTOS}!D5`,
+    RANGE_DATA_CLEAN:`${sheets.CARGA_DE_GASTOS}!C6:C12`,
 }
 
 const CARGA_DE_GASTOS_TABLE= {
     ID: `${sheets.PRECIOS}!A2`,
-    FECHA: `${sheets.CARGA_DE_GASTOS}!C5`,
-    DESCRIPCION: `${sheets.CARGA_DE_GASTOS}!C6`,
-    FORMA_DE_PAGO: `${sheets.CARGA_DE_GASTOS}!C7`,
-    PERSONA: `${sheets.CARGA_DE_GASTOS}!C8`,
-    COMENTARIOS: `${sheets.CARGA_DE_GASTOS}!C9`,
+    FECHA: `${sheets.CARGA_DE_GASTOS}!B2`,
+    MONTO: `${sheets.CARGA_DE_GASTOS}!C2`,
+    FORMA_DE_PAGO: `${sheets.CARGA_DE_GASTOS}!D2`,
+    PERSONA: `${sheets.CARGA_DE_GASTOS}!E2`,
+    DESCRIPCION: `${sheets.CARGA_DE_GASTOS}!F2`,
+    COMENTARIOS: `${sheets.CARGA_DE_GASTOS}!G2`,
+    TIPO_MOV: `${sheets.CARGA_DE_GASTOS}!H2`,
+    A_QUIEN: `${sheets.CARGA_DE_GASTOS}!I2`,
+    RANGE_TO_PASTE: `${sheets.CARGA_DE_GASTOS_TABLE}!A2:I2`,
 }
 
 

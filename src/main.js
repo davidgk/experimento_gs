@@ -1,7 +1,7 @@
 const {getActiveSheet, GoogleSheetClient}= require("./commons/gsheetClient");
 const {sheets} = require("./commons/coordinate");
 const {messages} = require("./commons/constants");
-const Expense = require("./expenses/Expense");
+const ExpenseManager = require("./expenses/ExpensesManager");
 
 
 
@@ -21,7 +21,7 @@ const actionExecutor =(action)=>{
 
 const ExpenseLoading = () => {
     const action = (gSheetClient) => {
-        let expense = new Expense(gSheetClient);
+        let expense = new ExpenseManager(gSheetClient);
         let result =  expense.saveExpense()
         gSheetClient.showMessage(result.message);
     }
@@ -31,7 +31,7 @@ const ExpenseLoading = () => {
 
 const CleanExpenseLoading = () => {
     const action = (gSheetClient) => {
-        const expense = new Expense(gSheetClient);
+        const expense = new ExpenseManager(gSheetClient);
         let result = expense.cleanForm()
         gSheetClient.showMessage(result.message);
     }
